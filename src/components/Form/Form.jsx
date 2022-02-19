@@ -4,12 +4,14 @@ import { useState } from "react";
 import Button from "../Button";
 import Input from "../Input";
 import TextArea from "../TextArea";
+import axios from "axios";
 
 const StyledForm = styled.form`
   max-width: 557px;
   display: flex;
   flex-direction: column;
 `;
+const BASE_URL = "http://localhost:3001/api/comments";
 
 const Form = () => {
   const [name, setName] = useState(null);
@@ -23,7 +25,14 @@ const Form = () => {
       email: email,
       comment: comment,
     };
-    console.log(user);
+    axios
+      .post(BASE_URL, user)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   return (

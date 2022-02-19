@@ -12,7 +12,7 @@ import GoodieBig from "./images/goodie-big.png";
 import Group from "./images/group.png";
 import Map768 from "./images/map768.png";
 
-const Background = styled.body`
+const Background = styled.div`
   @media screen and (max-width: 767px) {
     background-color: #fab9d9;
   }
