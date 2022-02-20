@@ -1,18 +1,11 @@
 import axios from "axios";
-const BASE_URL = "http://localhost:3001/api/comments";
+const BASE_URL = "https://annomaliiya-comments-api.herokuapp.com/api/comments";
 
-export default function commentsApi(user) {
-  let success = false;
-  axios
-    .post(BASE_URL, user)
-    .then(function (response) {
-      if (response) {
-        success = true;
-      }
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-  return success;
+export default async function commentsApi(user) {
+  try {
+    const { data } = await axios.post(BASE_URL, user);
+    return data;
+  } catch (error) {
+    return error;
+  }
 }

@@ -7,15 +7,17 @@ import TextArea from "../TextArea";
 import commentsApi from "../../services/api";
 
 const StyledForm = styled.form`
-  max-width: 557px;
   display: flex;
   flex-direction: column;
+  @media screen and (min-width: 768px) {
+    max-width: 557px;
+  }
 `;
 
 const Form = () => {
-  const [name, setName] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [comment, setComment] = useState(null);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [comment, setComment] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,14 +26,14 @@ const Form = () => {
       email: email,
       comment: comment,
     };
-    const isSuccess = commentsApi(user);
-    if (isSuccess === true) {
+    const data = await commentsApi(user);
+    if (data instanceof Error) {
+      alert("Oooops, something went wrong. Please try again later.");
+    } else {
       alert("Thank you for your comment. We will get in touch with you soon.");
       setName("");
       setEmail("");
       setComment("");
-    } else {
-      alert("Oooops, something went wrong. Please try again later.");
     }
   };
 

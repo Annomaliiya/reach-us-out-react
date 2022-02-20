@@ -5,24 +5,24 @@ import Twitter from "../../images/socialIcons/twitter.svg";
 import Facebook from "../../images/socialIcons/facebook.svg";
 import Pinterest from "../../images/socialIcons/pinterest.svg";
 
+const List = styled.ul`
+  display: flex;
+  @media screen and (max-width: 767px) {
+    justify-content: center;
+  }
+  @media screen and (min-width: 768px) {
+    padding-left: 30%;
+  }
+`;
+const Link = styled.a`
+  cursor: pointer;
+  margin-left: 10px;
+  fill: #696969;
+  &:hover {
+    fill: #ff9900;
+  }
+`;
 const SocialLinks = () => {
-  const List = styled.ul`
-    display: flex;
-    @media screen and (max-width: 767px) {
-      justify-content: center;
-    }
-    @media screen and (min-width: 768px) {
-      padding-left: 30%;
-    }
-  `;
-  const Link = styled.a`
-    cursor: pointer;
-    margin-left: 10px;
-    fill: #696969;
-    &:hover {
-      fill: #ff9900;
-    }
-  `;
   const applySvg = (src) => (
     <svg width={20} height={20}>
       <use href={src + "#icon"} />
