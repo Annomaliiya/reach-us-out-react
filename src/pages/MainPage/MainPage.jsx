@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import Section from "../../Section/Section";
 import Form from "../../components/Form";
 

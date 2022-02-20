@@ -21,8 +21,5 @@ const Button = styled.button`
     margin-left: 0;
   }
 `;
-// const Button = ({ text }) => {
-//   return <StyledButton type="submit">{text}</StyledButton>;
-// };
 
 export default Button;

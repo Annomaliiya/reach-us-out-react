@@ -1,16 +1,9 @@
 import styled from "styled-components";
-import SocialLinks from "../SocialLinks";
-
-// import Linkedin from "../../images/linkedin.svg";
-// import Twitter from "../../images/twitter.svg";
-// import Facebook from "../../images/facebook.svg";
-// import Pinterest from "../../images/pinterest.svg";
-
 import BigCircle from "../../images/footer-big.png";
 import Circle from "../../images/footer-small.png";
 import Upsider from "../../images/footer-upsidedown.png";
 
-const StyledFooter = styled.footer`
+const Footer = styled.footer`
   background: #fafafa;
   text-align: center;
   padding-top: 23px;
@@ -26,16 +19,12 @@ const StyledFooter = styled.footer`
   }
 `;
 
-const Footer = () => {
-  return (
-    <StyledFooter>
-      <SocialLinks></SocialLinks>
-      {/* <Link url="" src={Linkedin} width="20" height="20" alt="twitter-logo" />
-      <Link url="" src={Twitter} width="20" height="20" alt="twitter-logo" />
-      <Link url="" src={Facebook} width="20" height="20" alt="twitter-logo" />
-      <Link url="" src={Pinterest} width="20" height="20" alt="twitter-logo" /> */}
-    </StyledFooter>
-  );
-};
+// const Footer = () => {
+//   return (
+//     <StyledFooter>
+//       <SocialLinks></SocialLinks>
+//     </StyledFooter>
+//   );
+// };
 
 export default Footer;

@@ -30,16 +30,4 @@ const Input = styled.input`
   }
 `;
 
-// const Input = ({ value, name, placeholder, type, onChange }) => {
-//   return (
-//     <StyledInput
-//       type={type}
-//       value={value}
-//       name={name}
-//       placeholder={placeholder}
-//       onChange={onChange}
-//     />
-//   );
-// };
-
 export default Input;

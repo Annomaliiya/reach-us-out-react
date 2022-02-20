@@ -4,14 +4,13 @@ import { useState } from "react";
 import Button from "../Button";
 import Input from "../Input";
 import TextArea from "../TextArea";
-import axios from "axios";
+import commentsApi from "../../services/api";
 
 const StyledForm = styled.form`
   max-width: 557px;
   display: flex;
   flex-direction: column;
 `;
-const BASE_URL = "http://localhost:3001/api/comments";
 
 const Form = () => {
   const [name, setName] = useState(null);
@@ -25,19 +24,21 @@ const Form = () => {
       email: email,
       comment: comment,
     };
-    axios
-      .post(BASE_URL, user)
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    const isSuccess = commentsApi(user);
+    if (isSuccess === true) {
+      alert("Thank you for your comment. We will get in touch with you soon.");
+      setName("");
+      setEmail("");
+      setComment("");
+    } else {
+      alert("Oooops, something went wrong. Please try again later.");
+    }
   };
 
   return (
     <StyledForm onSubmit={handleSubmit}>
       <Input
+        value={name}
         required
         placeholder="Your name*"
         minLength="2"
@@ -47,6 +48,7 @@ const Form = () => {
         }}
       />
       <Input
+        value={email}
         required
         type="email"
         placeholder="Your email*"
@@ -56,6 +58,7 @@ const Form = () => {
         }}
       />
       <TextArea
+        value={comment}
         required
         minLength="20"
         placeholder="Your message*"
